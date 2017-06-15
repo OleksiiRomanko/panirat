@@ -1,0 +1,19 @@
+(function($){
+$('.Registration').on('click',function(){
+  $('.registration .firstRadio input[type="radio"]').prop("checked",'checked');
+  $('body').css({'overflow':'hidden'});
+  $('.shadow').css({'display':'block'});
+  $('.registration').css({'display':'block'});
+});
+$('.cancel').on('click',function(e){
+   $('body').css({'overflow':'auto'});
+   $('.shadow').css({'display':'none'});
+   $('.registration').css({'display':'none'});
+   $('.authorization').css({'display':'none'});
+});
+$('.Authorization').on('click',function(){
+  $('body').css({'overflow':'hidden'});
+  $('.shadow').css({'display':'block'});
+  $('.authorization').css({'display':'block'});
+});
+})(jQuery);

@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="Content-Type" content="text/html, charset=utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>Панібрат</title>
+
+    <!-- Bootstrap Core CSS -->
+    <link href="../assets/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom CSS -->
+    <link href="../assets/css/landing-page.css" rel="stylesheet">
+    <link href="../assets/css/myCssLandingPage.css" rel="stylesheet">
+
+    <!-- Custom Fonts -->
+    <link href="../assets/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    <link href="https://fonts.googleapis.com/css?family=Lato:300,400,700,300italic,400italic,700italic" rel="stylesheet" type="text/css">
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+</head>
+
+<body ng-app="authentication">
+
+    <!-- Navigation -->
+    <nav class="navbar navbar-inverse navbar-fixed-top topnav" role="navigation">
+        <div class="container topnav">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand topnav" href="#"><span style="color:aqua;font-size:24px">Пані</span><span style="color:aquamarine;font-size:24px">брат</span></a>
+            </div>
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                <ul class="nav navbar-nav navbar-right">
+                    <li>
+                        <a href="#advantages"><span>Про нас</span></a>
+                    </li>
+                    <li>
+                        <a href="#services"><span>Послуги</span></a>
+                    </li>
+                    <li>
+                        <a href="#contacts"><span>Контакти</span></a>
+                    </li>
+                </ul>
+            </div>
+            <!-- /.navbar-collapse -->
+        </div>
+        <!-- /.container -->
+    </nav>
+    <div class="container registration ">
+      <div class="row">
+        <div class="col-md-12 registrForm">
+          <h2>Реєстрація</h2>
+          <form name="form"  role="form" ng-controller='RegCntrl'>
+              <div class="form-group" ng-class="{'has-error':(form.email.$error.pattern && form.email.$dirty)||(form.email.$error.required && form.email.$dirty)}">
+                  <label for="email">Пошта</label>
+                  <input type="email" name="email" id="email" class="form-control" ng-pattern='/^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@(gmail|ukr|yandex|mail)\.[a-zA-Z]{2,}$/' ng-model="user.email" required />
+                  <span ng-show="form.email.$error.required && form.email.$dirty" class="help-block">Введіть електронну адресу</span>
+                  <span ng-show="form.email.$error.pattern" class="help-block">Некоректна електронна пошта</span>
+              </div>
+              <div class="form-group" ng-class="{ 'has-error': form.password.$dirty && form.password.$error.required }">
+                  <label for="password">Пароль</label>
+                  <input type="password" name="password" id="password" class="form-control" ng-model="user.password" required />
+                  <span ng-show="form.password.$dirty && form.password.$error.required" class="help-block">Введіть пароль</span>
+              </div>
+              <div class="radioButtons">
+                <label class="radio-inline firstRadio">
+                  <input type="radio" ng-model='typeOfIndv' ng-value="'Phis'" name="optradio1"/>Фізична особа
+                </label>
+                <label class="radio-inline secondRadio">
+                  <input type="radio" ng-model='typeOfIndv' ng-value="'Jur'" name="optradio2"/>Юридична Особа
+                </label>
+              </div>
+              <div class="form-actions">
+                  <button type="submit" ng-disabled="form.$invalid || vm.dataLoading" class="btn btn-primary" ng-click="register()">Зарєструватися</button>
+                  <button type="submit" class="btn btn-primary cancel">Відмінити</button>
+              </div>
+          </form>
+        </div>
+      </div>
+</div>
+<div class="container authorization">
+  <div class="row">
+    <div class="col-md-4 col-md-offset-5">
+      <h2>Авторизація</h2>
+      <form name="form"  role="form" ng-controller='AuthCntrl'>
+          <div class="form-group" ng-class="{'has-error':(form.email.$error.pattern && form.email.$dirty)||(form.email.$error.required && form.email.$dirty)}">
+              <label for="login">Пошта</label>
+              <input type="email" name="email" id="login" class="form-control" ng-pattern='/^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@(gmail|ukr|yandex|mail)\.[a-zA-Z]{2,}$/' ng-model="user.email" required />
+              <span ng-show="form.login.$error.required && form.login.$dirty" class="help-block">Введіть логін</span>
+              <span ng-show="form.email.$error.pattern" class="help-block">Некоректна електронна пошта</span>
+          </div>
+          <div class="form-group" ng-class="{ 'has-error': form.password.$dirty && form.password.$error.required }">
+              <label for="password">Пароль</label>
+              <input type="password" name="password" id="password" class="form-control" ng-model="user.password" required />
+              <span ng-show="form.password.$dirty && form.password.$error.required" class="help-block">Введіть пароль</span>
+          </div>
+          <div class="form-actions">
+              <button type="submit" ng-disabled="form.$invalid" class="btn btn-primary" ng-click="authorize()"><span>Зарєструватися</span></button>
+              <button type="button" class="btn btn-primary cancel"><span>Відмінити</span></button>
+          </div>
+      </form>
+    </div>
+  </div>
+</div>
+    <!-- Header -->
+    <div class="intro-header">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="intro-message">
+                        <h1><span style=" color:aqua">Пані</span><span style="color:aquamarine">брат</span></h1>
+                        <h3>Платформа ділових зв'язків</h3>
+                        <hr class="intro-divider">
+                        <ul class="list-inline intro-social-buttons">
+                            <li>
+                                <a href="#" class="btn btn-default btn-lg"> <span class="Registration" >Зареєструватися</span></a>
+                            </li>
+                            <li><a href="#" class="btn btn-default btn-lg "><span class="Authorization">Авторизуватися</span></a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- /.container -->
+    </div>
+  <div class="container advantages" id='advantages'>
+    <div class="row">
+      <div class="head">
+        <h2>
+          Чому Панібрат
+        </h2>
+      </div>
+      <div class="col-md-6 firstRow">
+            <ul class="list">
+              <li><h4 >Платформа для ділових відносин</h4><span>Заводити ділові відносини та знаходити необхідні контакти тепер легко</span></li>
+            </ul>
+            <ul class="list">
+              <li><h4>Найгарячіші пропозиції</h4><span>Найвигідніші пропозиції від компаній - тільки тут</span></li>
+            </ul>
+            <ul class="list">
+              <li><h4>Контакти, перевірені громадою</h4><span>Лише перевірені профілі користувачів, з відгуками та рейтингом.</br> Знайти кваліфікованих спеціалістів тепер стало легше</span></li>
+            </ul>
+      </div>
+      <div class="col-md-6 secondRow">
+          <ul class="list">
+            <li><h4>Відносини без меж</h4><span>Вільна торгівля товарами та послугами</span></li>
+          </ul>
+          <ul class="list">
+            <li><h4>Бартерний обмін</h4><span>Обмін товарами та послугами без НДС,грошей та інфляції</span></li>
+          </ul>
+          <ul class="list">
+            <li><h4>Світ відкритої інформації</h4><span>Величезна база компаній разом з відгуками клієнтів - дізнайся все про якість товарій та послуг</span></li>
+          </ul>
+       </div>
+      </div>
+    </div>
+  <div class='shadow'></div>
+   <div class="container-fluid">
+     <div class="row">
+    <a name="contact"></a>
+     <div class="banner">
+        <div class="container">
+          <div class="row">
+              <div class="col-lg-6">
+                  <h2>Зв'язатися з нами</h2>
+              </div>
+              <div class="container">
+                  <div class="row">
+                      <div class="col-md-8">
+                          <div class="well well-sm">
+                              <form>
+                              <div class="row">
+                                  <div class="col-md-6">
+                                      <div class="form-group">
+                                          <label for="name">
+                                              Ім'я</label>
+                                          <input type="text" class="form-control" id="name" placeholder="Enter name" required="required" />
+                                      </div>
+                                      <div class="form-group">
+                                          <label for="email">
+                                              Поштова адреса</label>
+                                          <div class="input-group">
+                                              <span class="input-group-addon"><span class="glyphicon glyphicon-envelope"></span>
+                                              </span>
+                                              <input type="email" class="form-control" id="email" placeholder="Enter email" required="required" /></div>
+                                      </div>
+                                      <div class="form-group">
+                                          <label for="subject">
+                                              Тематика</label>
+                                          <select id="subject" name="subject" class="form-control" required="required">                                                >
+                                              <option value="service">Обслуговування клієнтів</option>
+                                              <option value="product">Технічна підтримка</option>
+                                          </select>
+                                      </div>
+                                  </div>
+                                  <div class="col-md-6">
+                                      <div class="form-group">
+                                          <label for="name">
+                                              Повідомлення</label>
+                                          <textarea name="message" id="message" class="form-control" rows="9" cols="25" required="required"
+                                              placeholder="Message"></textarea>
+                                      </div>
+                                  </div>
+                                  <div class="col-md-12">
+                                      <button type="submit" class="btn btn-primary pull-right" id="btnContactUs">
+                                          <span>Відправити повідомлення</span></button>
+                                  </div>
+                              </div>
+                              </form>
+                          </div>
+                      </div>
+              </div>
+        </div>
+     </div>
+    </div>
+   </div>
+ </div>
+  </div>
+    <!-- /.banner -->
+  <div class="container">
+    <div class="row">
+      <div class="head">
+        <h2 style='color:aqua'>Контакты</h2>
+      </div>
+      <div class="contactInfo">
+        <span class="glyphicon glyphicon-envelope" style='font-weight:700'> bla.ukr.net<span>
+        </br>
+        <span class="glyphicon glyphicon-phone-alt" style='font-weight:700'> 000-000-000-000</span>
+      </div>
+    </div>
+  </div>
+    <!-- Footer -->
+    <footer>
+        <div class="container" id="contacts">
+            <div class="row">
+                <div class="col-lg-12">
+                    <p class="copyright text-muted small">Copyright &copy; Панібрат 2017. Усі права захищені</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- jQuery -->
+    <script src="../assets/js/jquery.js"></script>
+
+    <!-- Bootstrap Core JavaScript -->
+    <script src="../assets/js/bootstrap.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>
+    <script src="../assets/js/authentication.js"></script>
+    <script src="../assets/js/JAuthentication.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,19 @@
+.header-deals {
+  background-color: #e8efee;
+  padding-left: 10%;
+  margin-left: 15%;
+}
+.header-deals span {
+  font-weight: 700;
+  color: black;
+  font-size: 18px;
+}
+.header-deals a {
+  text-decoration: none;
+}
+.header-deals a:hover {
+  border-bottom: 3px solid aqua;
+}
+.header-deals ul li {
+  padding-left: 4%;
+}

@@ -1,0 +1,54 @@
+# Routes
+# This file defines all application routes (Higher priority routes first)
+# ~~~~
+
+#Home
+GET  /                       @controllers.Assets.at(path="/public", file="html/index.html")
+GET     /confirm                    controllers.Assets.at(path="/public", file="html/successful.html")
+OPTIONS /*path                    @controllers.UserController.info(path:String)
+GET /api/users                     @controllers.Site.get
+GET /api/users/:id                 @controllers.Site.read(id:String)
+POST /api/widget                    @controllers.Site.create
+DELETE /api/widget/:id              @controllers.Site.delete(id:String)
+PATCH /api/widget/:id               @controllers.Site.update(id:String)
+#GET /test                           @controllers.Site.indextry
+GET /test/mongodbtest                   @controllers.SiteRepoSpec.index
+GET /test/mongodbclean                  @controllers.SiteRepoSpec.index2
+
+# Map static resources from the /public folder to the /assets URL path
+GET     /assets/*file               controllers.Assets.at(path="/public/assets", file)
+GET   /users/*file                  controllers.Assets.at(path="/public/users", file)
+GET     /pictures/*file               controllers.Assets.at(path="/public/pictures/", file)
+POST /users/create                  @controllers.UserController.create
+GET /users/getallvalid                  @controllers.AdminController.getusersvalid
+GET /users/getallunvalid                  @controllers.AdminController.getusersunvalid
+GET /users/validate/                 @controllers.UserController.validate
+POST /users/auth               @controllers.UserController.auth
+POST /saveportfolio                 @controllers.ProfileController.saveportfolio
+GET /loadportfolio                  @controllers.ProfileController.loadportfolio
+POST /savefeedback                  @controllers.ProfileController.savefeedbacks
+GET /loadfeedback                  @controllers.ProfileController.loadfeedbacks
+POST /saveindividual                @controllers.ProfileController.saveindividual
+GET /loadindividual                  @controllers.ProfileController.loadindividual
+#GET /bodiatest                  @controllers.ProfileController
+POST /test                    @controllers.UserController.test
+#Profile
+GET /profile                @controllers.Assets.at(path="/public", file="html/portfolio.html")
+POST /testoffer             @controllers.ProfileController.savepic
+GET /testgetoffer           @controllers.ProfileController.loadpic
+GET /loadoffersubcat        @controllers.ProfileController.loadoffersubcat
+GET /loadoffercat           @controllers.ProfileController.loadoffercat
+POST /loadofferlist          @controllers.ProfileController.loadofferlist
+#TEST
+#GET   /              controllers.Application.index
+#POST  /login         controllers.Application.login
+#GET   /welcome       controllers.Application.welcome
+
+#Test2
+#GET  /               controllers.Application.index
+#GET  /search/:term   controllers.Search.perform(term:String)
+#GET  /search/        controllers.Search.perform(term:String="")
+
+GET /auth           controllers.LoginController.auth
+GET /verify         controllers.LoginController.verify
+GET /discard        controllers.LoginController.discard

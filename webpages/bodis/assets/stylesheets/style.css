@@ -1,0 +1,118 @@
+body {
+padding-top: 125px;
+font-family: Segoe UI;
+font-size: 12px;
+background-image: url(../images/hotel.png), url(../images/bgg.png);
+background-size: 849px 600px, 2px 2px;
+background-repeat: no-repeat, repeat;
+background-position:84px -44px;
+}
+
+#login {
+padding-top: 7px;
+padding-bottom: 7px;
+padding-left: 10px;
+background-color: #F0F0F0;
+border: 2px solid #F0F0F0;
+border-radius: 4px;
+width: 600px;
+margin-left: auto;
+margin-right: auto;
+box-shadow: 0px 0px 10px #F0F0F0;
+}
+
+#hotelinfo {
+padding-top: 15px;
+padding-left: 10px;
+background-color: #F0F0F0;
+border: 2px solid #F0F0F0;
+border-radius: 4px;
+width: 600px;
+height: 275px;
+margin-left: auto;
+margin-right: auto;
+text-align:right;
+box-shadow: 0px 0px 10px #F0F0F0;
+}
+
+input[type="text"] {
+border: 1px outset black;
+border-radius: 5px;
+box-shadow: 0px 0px 7px #3A80A9;
+}
+
+input[type="text"]:hover {
+border: 1px outset black;
+border-radius: 5px;
+box-shadow: 0px 0px 7px black;
+}
+
+input[type="password"]:hover {
+border: 1px outset black;
+border-radius: 5px;
+box-shadow: 0px 0px 7px black;
+}
+
+input[type="password"] {
+border: 1px outset black;
+border-radius: 5px;
+box-shadow: 0px 0px 7px #3A80A9;
+}
+
+input[type="submit"] {
+border: 2px solid #3A80A9;
+border-radius: 4px;
+width:150px;
+background-color: #3A80A9;
+color: #FFFFFF;
+font-size: 18px;
+box-shadow: 0px 0px 7px #3A80A9;
+}
+
+input[type="button"] {
+border: 2px solid #A93A3A;
+background-color: #A93A3A;
+border-radius: 4px;
+width:250px;
+height:40px;
+box-shadow: 0px 0px 7px #A93A3A;
+color: #FFFFFF;
+font-size:22px;
+}
+
+input[type="button"]:hover {
+border: 3px solid #C84747;
+background-color: #C84747;
+border-radius: 4px;
+width:249px;
+height:39px;
+box-shadow: 0px 0px 12px #C84747;
+color: #FFFFFF;
+font-size:22px;
+}
+
+input[type="submit"]:hover {
+border: 2px solid #4A9BCA;
+border-radius: 4px;
+width:149px;
+background-color: #4A9BCA;
+color: #FFFFFF;
+font-size: 18px;
+box-shadow: 0px 0px 12px #4A9BCA;
+}
+
+a:hover {
+color: #000000;
+}
+
+#welcome {
+opacity:0.75; 
+background-color: #000000;
+position:fixed;
+margin-left: 340px;
+margin-top:12px;
+border: 2px solid black;
+border-radius:4px;
+color: #FFFFFF;
+padding-bottom: 7px;
+}

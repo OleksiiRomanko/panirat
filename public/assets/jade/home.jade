@@ -1,0 +1,122 @@
+//output:../views/home.html
+nav.navbar.navbar-inverse.navbar-fixed-top
+  .container-fluid  
+    .navbar-header
+      button.navbar-toggle.collapsed(type='button', data-toggle='collapse', data-target='#bs-example-navbar-collapse-1', aria-expanded='false')
+        span.sr-only Toggle navigation
+        span.icon-bar
+        span.icon-bar
+        span.icon-bar
+      a.navbar-brand.systitle(href='#') 
+        span Пані
+        span брат    
+      ul.nav.navbar-nav
+        li.active
+          a(href='#')
+            | Link 
+            span.sr-only (current)
+        li
+          a(href='#') Link          
+        li  
+          a(href='#')   
+            span.glyphicon.magnifier.glyphicon-search(aria-hidden='true')          
+.side-bar.container    
+  ul.list-unstyled
+    li
+      a(href="#")
+        span Мій профіль
+    li
+      a(href="#")
+        span Друзі          
+    li
+      a(href="#")
+        span Повідомлення
+    li
+      a(href="#!deals")
+        span Угоди
+    li
+      a(href="#")
+        span Налаштування              
+.container.first-container
+  .row      
+    .col-md-11.col-md-offset-1.profile-header
+      .row
+        .col-md-11            
+          div.photo
+            img(src="pictures/portImg.jpg", alt="Cinque Terre").img-circle
+          .profile-info
+            .header-info
+              h2 Леонардо Вільгельм Ді Капріо          
+            .main-info
+              h5 Дата народження : 11 листопада 1974
+              h5 Місто : Лос-Анджелес
+              h5 Освіта : Універ            
+        .col-md-1.edit           
+          div
+            a(href="")
+              img(src="pictures/Edit_small.png", alt="")              
+.container
+  .row      
+    .col-md-11.col-md-offset-1.ratings
+      .row
+        .col-md-11
+          .row
+            div.header-offers
+              h3 Рейтинг
+        //- .col-md-1.edit
+        //-   .row          
+        //-     div
+        //-       a(href="")
+        //-         img(src="pictures/Plus_small.png", alt="") 
+.container
+  .row      
+    .col-md-11.col-md-offset-1.portfolios(ng-controller='createOrChangePorf')
+      .row
+        .col-md-11
+          .row
+            div.header-offers
+              h3 Портфоліо робіт
+        .col-md-1.edit
+          .row
+            div
+              a(href="",ng-click="edit('lg')")
+                img(src="pictures/Edit_small.png", alt="")
+            div
+              a(href="",ng-click='open("lg")')
+                img(src="pictures/Plus_small.png", alt="") 
+      .row
+        .col-md-12
+          div.photos     
+            slick(ng-if='resetSlick' infinite='true',speed='300',slides-to-scroll='1',slides-to-show='7')
+              div(ng-repeat='image in images track by $index')                            
+                  img(ng-src='{{image.url}}')
+                  span{{image.descr}}        
+.container#myOffers(ng-controller='offersList')
+  .row      
+    .col-md-11.col-md-offset-1.offers
+      .row
+        .col-md-11
+          .row
+            div.header-offers
+              h3 Мої пропозиції
+        .col-md-1.edit
+          .row
+            div
+              a(href="")
+                img(src="pictures/Edit_small.png", alt="")
+            div
+              a(href="" ng-click='open("lg")')
+                img(src="pictures/Plus_small.png", alt="") 
+      .row
+        .col-md-12          
+          div.offersList
+            div.media(ng-repeat='offer in offers  | startFrom:(currentPage-1)*pageSize | limitTo : pageSize')
+              div.media-left
+                a(href='#')
+                  img.media-object(src='{{offer.url}}')                   
+              div.media-body
+                h4.media-heading offer
+                span lalalalalalalalalalallalalalalaal
+              hr
+            div.paginat
+              ul.myPagination(uib-pagination, rotate='true',force-ellipses='true',previous-text="<", next-text=">",total-items='offers.length',ng-model='currentPage',items-per-page='pageSize')    

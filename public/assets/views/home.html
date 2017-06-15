@@ -1,0 +1,128 @@
+
+<nav class="navbar navbar-inverse navbar-fixed-top">
+  <div class="container-fluid"> 
+    <div class="navbar-header">
+      <button type="button" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false" class="navbar-toggle collapsed"><span class="sr-only">Toggle navigation</span><span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span></button><a href="#" class="navbar-brand systitle"> <span>Пані</span><span>брат    </span></a>
+      <ul class="nav navbar-nav">
+        <li class="active"><a href="#">Link <span class="sr-only">(current)</span></a></li>
+        <li><a href="#">Link          </a></li>
+        <li> <a href="#">  <span aria-hidden="true" class="glyphicon magnifier glyphicon-search">         </span></a></li>
+      </ul>
+    </div>
+  </div>
+</nav>
+<div class="side-bar container">   
+  <ul class="list-unstyled">
+    <li><a href="#"><span>Мій профіль</span></a></li>
+    <li><a href="#"><span>Друзі          </span></a></li>
+    <li><a href="#"><span>Повідомлення</span></a></li>
+    <li><a href="#!deals"><span>Угоди</span></a></li>
+    <li><a href="#"><span>Налаштування              </span></a></li>
+  </ul>
+</div>
+<div class="container first-container">
+  <div class="row">     
+    <div class="col-md-11 col-md-offset-1 profile-header">
+      <div class="row">
+        <div class="col-md-11">           
+          <div class="photo"><img src="pictures/portImg.jpg" alt="Cinque Terre" class="img-circle"/></div>
+          <div class="profile-info">
+            <div class="header-info">
+              <h2>Леонардо Вільгельм Ді Капріо          </h2>
+            </div>
+            <div class="main-info">
+              <h5>Дата народження : 11 листопада 1974</h5>
+              <h5>Місто : Лос-Анджелес</h5>
+              <h5>Освіта : Універ            </h5>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-1 edit">          
+          <div><a href=""><img src="pictures/Edit_small.png" alt=""/></a></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="container">
+  <div class="row">     
+    <div class="col-md-11 col-md-offset-1 ratings">
+      <div class="row">
+        <div class="col-md-11">
+          <div class="row">
+            <div class="header-offers">
+              <h3>Рейтинг</h3>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="container">
+  <div class="row">     
+    <div ng-controller="createOrChangePorf" class="col-md-11 col-md-offset-1 portfolios">
+      <div class="row">
+        <div class="col-md-11">
+          <div class="row">
+            <div class="header-offers">
+              <h3>Портфоліо робіт</h3>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-1 edit">
+          <div class="row">
+            <div><a href="" ng-click="edit('lg')"><img src="pictures/Edit_small.png" alt=""/></a></div>
+            <div><a href="" ng-click="open(&quot;lg&quot;)"><img src="pictures/Plus_small.png" alt=""/></a></div>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-12">
+          <div class="photos">    
+            <slick ng-if="resetSlick" infinite="true" speed="300" slides-to-scroll="1" slides-to-show="7">
+              <div ng-repeat="image in images track by $index">                           <img ng-src="{{image.url}}"/><span>{{image.descr}}        </span></div>
+            </slick>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<div id="myOffers" ng-controller="offersList" class="container">
+  <div class="row">     
+    <div class="col-md-11 col-md-offset-1 offers">
+      <div class="row">
+        <div class="col-md-11">
+          <div class="row">
+            <div class="header-offers">
+              <h3>Мої пропозиції</h3>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-1 edit">
+          <div class="row">
+            <div><a href=""><img src="pictures/Edit_small.png" alt=""/></a></div>
+            <div><a href="" ng-click="open(&quot;lg&quot;)"><img src="pictures/Plus_small.png" alt=""/></a></div>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-12">         
+          <div class="offersList">
+            <div ng-repeat="offer in offers  | startFrom:(currentPage-1)*pageSize | limitTo : pageSize" class="media">
+              <div class="media-left"><a href="#"><img src="{{offer.url}}" class="media-object"/></a></div>
+              <div class="media-body">
+                <h4 class="media-heading">offer</h4><span>lalalalalalalalalalallalalalalaal</span>
+              </div>
+              <hr/>
+            </div>
+            <div class="paginat">
+              <ul uib-pagination="uib-pagination" rotate="true" force-ellipses="true" previous-text="&lt;" next-text="&gt;" total-items="offers.length" ng-model="currentPage" items-per-page="pageSize" class="myPagination">   </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

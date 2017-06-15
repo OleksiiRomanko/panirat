@@ -1,0 +1,66 @@
+{
+  "name": "angular-drag-drop",
+  "version": "3.1.0",
+  "description": "Dependency-free drag and drop support in Angular.js",
+  "main": "./src/angular-drag-drop.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "webpack --config webpack.config.js",
+    "build-example": "cd example && webpack",
+    "start": "cd example && webpack-dev-server"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ggoodman/angular-drag-drop.git"
+  },
+  "keywords": [
+    "angular",
+    "angularjs",
+    "drag",
+    "drop"
+  ],
+  "author": {
+    "name": "Geoffrey Goodman"
+  },
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/ggoodman/angular-drag-drop/issues"
+  },
+  "homepage": "https://github.com/ggoodman/angular-drag-drop",
+  "devDependencies": {
+    "angular": "^1.5.8",
+    "autoprefixer-loader": "^3.1.0",
+    "css-loader": "^0.23.0",
+    "exports-loader": "^0.6.2",
+    "less-loader": "^2.2.1",
+    "style-loader": "^0.13.0",
+    "webpack": "^1.12.9",
+    "webpack-dev-server": "^1.14.0"
+  },
+  "gitHead": "561f175ce3d1439ffceb450ec30cf4da3d2f5cba",
+  "_id": "angular-drag-drop@3.1.0",
+  "_shasum": "63943b6ad30899d817f7043363318708a2993ece",
+  "_from": "angular-drag-drop@latest",
+  "_npmVersion": "2.15.0",
+  "_nodeVersion": "4.4.2",
+  "_npmUser": {
+    "name": "filearts",
+    "email": "filearts@gmail.com"
+  },
+  "dist": {
+    "shasum": "63943b6ad30899d817f7043363318708a2993ece",
+    "tarball": "https://registry.npmjs.org/angular-drag-drop/-/angular-drag-drop-3.1.0.tgz"
+  },
+  "maintainers": [
+    {
+      "name": "filearts",
+      "email": "filearts@gmail.com"
+    }
+  ],
+  "_npmOperationalInternal": {
+    "host": "packages-12-west.internal.npmjs.com",
+    "tmp": "tmp/angular-drag-drop-3.1.0.tgz_1485470865938_0.4079873620066792"
+  },
+  "directories": {},
+  "_resolved": "https://registry.npmjs.org/angular-drag-drop/-/angular-drag-drop-3.1.0.tgz"
+}
